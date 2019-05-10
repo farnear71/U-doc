@@ -3,7 +3,7 @@ MAINTAINER uclick wklim <wklim@uclick.co.kr>
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN echo "\ndeamon off;" >> /etc/nginx/nginx.conf
-RUN chmod -R www-data:www-data /var/lib/nginx
+RUN chown -R www-data:www-data /var/lib/nginx
 VOLUME ["data", "/etc/nginx/site-enabled", "/var/log/nginx"]
 WORKDIR /etc/nginx
 CMD ["nginx"]
